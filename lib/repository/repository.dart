@@ -10,7 +10,6 @@ import 'package:movieapp/model/video_response.dart';
 class MovieRepository {
   final String apiKey = "2aa03d4a403769e7950d5c57f1efb2d4";
   static String mainUrl = "https://api.themoviedb.org/3";
-  static String apiUrl = "https://api.metaflix.az/api";
   final Dio _dio = Dio();
   var getPopularUrl = '$mainUrl/movie/top_rated';
   var getMoviesUrl = '$mainUrl/discover/movie';
