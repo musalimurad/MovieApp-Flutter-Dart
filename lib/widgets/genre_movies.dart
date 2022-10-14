@@ -78,7 +78,7 @@ class _GenreMoviesState extends State<GenreMovies> {
       );
     } else {
       return Container(
-        height: 270.0,
+        height: 150.0,
         padding: const EdgeInsets.only(left: 10.0),
         child: ListView.builder(
           scrollDirection: Axis.horizontal,
@@ -89,20 +89,24 @@ class _GenreMoviesState extends State<GenreMovies> {
               padding: EdgeInsets.only(
                 top: 10.0,
                 bottom: 10.0,
+                // test
                 right: 10.0,
               ),
               child: GestureDetector(
                 onTap: () {
-                  Navigator.push(context, MaterialPageRoute(
-                    builder: (context) => MovieDetailScreen(movie: movies[index]),
-                  ));
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) =>
+                            MovieDetailScreen(movie: movies[index]),
+                      ));
                 },
                 child: Column(
                   children: [
                     movies[index].poster == null
                         ? Container(
                             width: 120.0,
-                            height: 180.0,
+                            height: 160.0,
                             decoration: const BoxDecoration(
                                 color: Style.Colors.secondColor,
                                 borderRadius:
@@ -121,7 +125,7 @@ class _GenreMoviesState extends State<GenreMovies> {
                           )
                         : Container(
                             width: 120.0,
-                            height: 180.0,
+                            height: 160.0,
                             decoration: BoxDecoration(
                               borderRadius:
                                   BorderRadius.all(Radius.circular(2.0)),
@@ -129,31 +133,28 @@ class _GenreMoviesState extends State<GenreMovies> {
                               image: DecorationImage(
                                   image: NetworkImage(
                                       "https://image.tmdb.org/t/p/w200/" +
-                                          movies[index].poster),
+                                          movies[index].poster
+                                      // "https://m.media-amazon.com/images/I/71Y5pMAw8rL._AC_SL1200_.jpg"),
+                                      ),
                                   fit: BoxFit.cover),
                             ),
                           ),
                     // ignore: prefer_const_constructors
-                    SizedBox(
-                      height: 10.0,
-                    ),
+
                     // ignore: sized_box_for_whitespace
                     Container(
                       width: 100.0,
-                      child: Text(
-                        movies[index].title,
-                        maxLines: 2,
-                        // ignore: prefer_const_constructors
-                        style: TextStyle(
-                          height: 1.4,
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 11.0,
-                        ),
-                      ),
-                    ),
-                    const SizedBox(
-                      height: 5.0,
+                      // child: Text(
+                      //   movies[index].title,
+                      //   maxLines: 2,
+                      //   // ignore: prefer_const_constructors
+                      //   style: TextStyle(
+                      //     height: 1.4,
+                      //     color: Colors.white,
+                      //     fontWeight: FontWeight.bold,
+                      //     fontSize: 11.0,
+                      //   ),
+                      // ),
                     ),
                   ],
                 ),
