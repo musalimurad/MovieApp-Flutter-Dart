@@ -100,7 +100,7 @@ Widget _buildMoviesWidget(MovieResponse data) {
     );
   } else {
     return Container(
-      height: 270.0,
+      height: 190.0,
       padding: const EdgeInsets.only(left: 10.0),
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
@@ -117,7 +117,7 @@ Widget _buildMoviesWidget(MovieResponse data) {
                 movies[index].poster == null
                     ? Container(
                         width: 120.0,
-                        height: 180.0,
+                        height: 160.0,
                         // ignore: prefer_const_constructors
                         decoration: BoxDecoration(
                             color: Style.Colors.secondColor,
@@ -137,38 +137,33 @@ Widget _buildMoviesWidget(MovieResponse data) {
                       )
                     : Container(
                         width: 120.0,
-                        height: 180.0,
+                        height: 160.0,
                         decoration: BoxDecoration(
                           borderRadius:
                               const BorderRadius.all(Radius.circular(2.0)),
                           shape: BoxShape.rectangle,
                           image: DecorationImage(
                               image: NetworkImage(
-                                  // ignore: prefer_interpolation_to_compose_strings
                                   "https://image.tmdb.org/t/p/w200/" +
-                                      movies[index].poster),
+                                      movies[index].poster
+                                 ),
                               fit: BoxFit.cover),
                         ),
                       ),
-                const SizedBox(
-                  height: 10.0,
-                ),
-                Container(
-                  width: 100.0,
-                  child: Text(
-                    movies[index].title,
-                    maxLines: 2,
-                    style: const TextStyle(
-                      height: 1.4,
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 11.0,
-                    ),
-                  ),
-                ),
-                const SizedBox(
-                  height: 5.0,
-                ),
+
+                // Container(
+                //   width: 100.0,
+                //   child: Text(
+                //     movies[index].title,
+                //     maxLines: 2,
+                //     style: const TextStyle(
+                //       height: 1.4,
+                //       color: Colors.white,
+                //       fontWeight: FontWeight.bold,
+                //       fontSize: 11.0,
+                //     ),
+                //   ),
+                // ),
               ],
             ),
           );

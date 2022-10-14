@@ -7,13 +7,14 @@ class SimilarMoviesBloc {
   final MovieRepository _repository = MovieRepository();
   final BehaviorSubject<MovieResponse> _subject =
       BehaviorSubject<MovieResponse>();
+
   getSimilarMovies(int id) async {
     MovieResponse response = await _repository.getSimilarMovies(id);
     _subject.sink.add(response);
   }
 
-  void drainStream() {
-    _subject.value;
+  void drainStream() async {
+    await _subject.drain();
   }
 
   @mustCallSuper
@@ -23,9 +24,6 @@ class SimilarMoviesBloc {
   }
 
   BehaviorSubject<MovieResponse> get subject => _subject;
-
 }
 
 final similarMoviesBloc = SimilarMoviesBloc();
-
-

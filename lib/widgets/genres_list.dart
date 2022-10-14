@@ -31,7 +31,7 @@ class _GenresListState extends State<GenresList>
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 307.0,
+      height: 245.0,
       child: DefaultTabController(
         length: genres.length,
         child: Scaffold(
